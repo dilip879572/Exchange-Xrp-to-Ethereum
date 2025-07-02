@@ -1,0 +1,1706 @@
+import React, { useEffect } from "react";
+
+
+
+
+// // import Pagination from 'react-bootstrap/Pagination';
+
+const topbottom = `${process.env.REACT_APP_API_IMAGES_PATH}/images/top-bottom.png`;
+const graph_green = `${process.env.REACT_APP_API_IMAGES_PATH}/images/left-right.png`;
+const greenfull = `${process.env.REACT_APP_API_IMAGES_PATH}/images/green-full.png`;
+const redfullpng = `${process.env.REACT_APP_API_IMAGES_PATH}/images/red-full.png`;
+
+
+const redfullBitcoin = `${process.env.REACT_APP_API_IMAGES_PATH}/images/bitcoin.png`;
+const redfullBitcoingraph = `${process.env.REACT_APP_API_IMAGES_PATH}/images/graph.png`;
+
+
+
+function Trade(){
+    return(
+        <>
+    <section class="trade_graph_section section-padding">
+        <div class="container-fluid">
+            <div class="row graph_block_row">
+                <div class="col graph_col">
+                    
+                    <div class="trade_left_block p-0">
+                                <div class="trade_amount_block">
+                                    <div class="trade_amount_currency">
+                                        <img src={redfullBitcoin} alt="Bitcoin" class="currency_icon" />
+                                        <div class="trade_currency_text">
+                                            <h4 class="trade_heading">BTC/USDT</h4>
+                                            <p class="text-small text-gray">Bitcoin  | BTC Network</p>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="trade_currency_block">
+                                        <div class="trade_currency_item">
+                                            <h2 class="trade_amount">$ 94,727.60 </h2>
+                                            <p class="text-small text-white">≈103,757.10 USD</p>
+                                        </div>
+                                        <div class="trade_currency_item">
+                                            <p class="text-small text-bold">24H Change</p>
+                                            <p class="text-small text-white">-0.30%</p>
+                                        </div>
+                                        <div class="trade_currency_item">
+                                            <p class="text-small text-bold">24H High</p>
+                                            <p class="text-small text-white">95,197.0</p>
+                                        </div>
+                                        <div class="trade_currency_item">
+                                            <p class="text-small text-bold">24H Low</p>
+                                            <p class="text-small text-white">93609.6</p>
+                                        </div>
+                                        <div class="trade_currency_item">
+                                            <p class="text-small text-bold">24H Turnover</p>
+                                            <p class="text-small text-white">721,248,87.46</p>
+                                        </div>
+                                        <div class="trade_currency_item">
+                                            <p class="text-small text-bold">Daily Interest Rate</p>
+                                            <p class="text-small text-white">0.00283507%|0.01044111%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+
+                    <div class="container-fluid graph_container">
+                        <div class="row graph_block_row">
+                            <div class="col-lg-9 graph-col">
+                                <div class="graph_block">  
+                                <iframe
+                    title="XRP Chart"
+                    src="https://s.tradingview.com/widgetembed/?hideideas=1&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en#%7B%22symbol%22%3A%22BITSTAMP%3AXRPUSD%22%2C%22frameElementId%22%3A%22tradingview_1cb6e%22%2C%22interval%22%3A%22D%22%2C%22allow_symbol_change%22%3A%221%22%2C%22save_image%22%3A%221%22%2C%22studies%22%3A%22%5B%5D%22%2C%22theme%22%3A%22dark%22%2C%22style%22%3A%223%22%2C%22timezone%22%3A%22Etc%2FUTC%22%2C%22studies_overrides%22%3A%22%7B%7D%22%2C%22utm_source%22%3A%22changelly.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22chart%22%2C%22utm_term%22%3A%22BITSTAMP%3AXRPUSD%22%2C%22page-uri%22%3A%22changelly.com%2Fexchange%2Fxrp%22%7D"
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    allowTransparency="true"
+                    allowFullScreen
+                    style={{ border: "none" }}
+                  ></iframe>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col trade_col">
+                                <div class="trade_order_block">
+                                    <ul class="nav nav-pills">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-bs-toggle="pill" href="#order_book">Order Book</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-bs-toggle="pill" href="#recent_trade">Recent Trade</a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        {/* <!-- Order Book tab --> */}
+                                        <div class="tab-pane active" id="order_book">
+                                            {/* <!-- Grid options --> */}
+                                            <div class="order_book_grid">
+                                                <ul class="order_grid">
+                                                    <li>
+                                                        <img src={graph_green} alt="Left Right" class="grid_images active" data-id="left_right" />
+                                                    </li>
+                                                    <li>
+                                                        <img src={topbottom} alt="Top Bottom" class="grid_images" data-id="top_bottom" />
+                                                    </li>
+                                                    <li>
+                                                        <img src={greenfull} alt="Green Full" class="grid_images" data-id="green_full" />
+                                                    </li>
+                                                    <li>
+                                                        <img src={redfullpng} alt="Red Full" class="grid_images" data-id="red_full" />
+                                                    </li>
+                                                </ul>
+                                                <select id="grid_select" name="grid_select" class="form-control form-select">
+                                                    <option value="0.1">0.1</option>
+                                                    <option value="1">1</option>
+                                                    <option value="10">10</option>
+                                                    <option value="100">100</option>
+                                                    <option value="1000">1000</option>
+                                                </select>
+                                            </div>
+
+                                           
+                                            <div class="order_book_table_block" id="left_right">
+                                              
+                                                <table class="order_book_red_table order_book_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Price USDT</th>
+                                                            <th>Quantity (BTC)</th>
+                                                            <th class="data_total">
+                                                                <select class="form-select-table" id="order_select_currency">
+                                                                    <option value="Total (BTC)">Total (BTC)</option>
+                                                                    <option value="Total (USDT)">Total (USDT)</option>
+                                                                </select>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="bg-primary-red text-red">94,555.00</td>
+                                                            <td class="bg-primary-red text-light-red">0.0005689</td>
+                                                            <td class="bg-primary-red text-light-red data_total">0.5674337</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,555.00</td>
+                                                            <td>0.9988770</td>
+                                                            <td class="data_total">0.4683778</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.07</td>
+                                                            <td>0.6789567</td>
+                                                            <td class="bg-primary-red text-light-red data_total">0.5578356</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.08</td>
+                                                            <td>0.9876453</td>
+                                                            <td class="data_total">0.4672268</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.03</td>
+                                                            <td>0.5634579</td>
+                                                            <td class="data_total">0.2456726</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.01</td>
+                                                            <td>0.6574839</td>
+                                                            <td class="data_total">6.8990589</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,555.02</td>
+                                                            <td>0.6574839</td>
+                                                            <td class="data_total">6.8990589</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,555.02</td>
+                                                            <td>0.6574839</td>
+                                                            <td class="data_total">6.8990589</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bg-primary-red text-red">93,777.00</td>
+                                                            <td class="bg-primary-red text-light-red">012345980</td>
+                                                            <td class="bg-primary-red text-light-red data_total">4.7884774</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            
+                                                <table class="order_book_green_table order_book_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Price USDT</th>
+                                                            <th>Quantity (BTC)</th>
+                                                            <th class="data_total">
+                                                                <select class="form-select-table" id="order_select_green_currency">
+                                                                    <option value="Total (BTC)">Total (BTC)</option>
+                                                                    <option value="Total (USDT)">Total (USDT)</option>
+                                                                </select>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="bg-primary-green text-green">95,557.00</td>
+                                                            <td class="bg-primary-green text-light-green">4.778990</td>
+                                                            <td class="bg-primary-green text-light-green data_total">4.978946</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">95,779.00</td>
+                                                            <td>8.990056</td>
+                                                            <td class="data_total">6.987645</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">95,777.00</td>
+                                                            <td>3.889966</td>
+                                                            <td class="data_total">6.993345</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">94,666.00</td>
+                                                            <td>3.899788</td>
+                                                            <td class="data_total">8.556677</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">93,777.00</td>
+                                                            <td>4.989788</td>
+                                                            <td class="data_total">3.887766</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">95,777.00</td>
+                                                            <td>7.345623</td>
+                                                            <td class="data_total">4.005566</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">92,888.00</td>
+                                                            <td>3.876567</td>
+                                                            <td class="data_total">3.789024</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">92,888.00</td>
+                                                            <td>3.876567</td>
+                                                            <td class="data_total">3.789024</td>
+                                                        </tr>
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            {/* <!-- Selling up block --> */}
+                                            <div class="sell_up_block">
+                                                <div class="sell_up_right_block">
+                                                    <h3 class="up_text_left up_text_col">
+                                                        <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                                                        <span>94,727.60</span>
+                                                    </h3>
+                                                    <h4 class="up_text_right up_text_col">
+                                                        <span class="icon">&#8776;</span>
+                                                        <span>94,727.60</span>
+                                                    </h4>
+                                                </div>
+                                            </div>
+
+                                            {/* <!-- Sell Buy Percentage block --> */}
+                                            <div class="buy_sell_split">
+                                                <div class="buy_split">
+                                                    <p class="buy_sell_text">Buy <span>43%</span></p>
+                                                </div>
+                                                <div class="sell_split">
+                                                    <p class="buy_sell_text text-right">Sell <span>57.0%</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        {/* <!-- Recent Trade tab --> */}
+                                        <div class="tab-pane fade" id="recent_trade">
+                                            <div class="order_book_table_block">
+                                                <table class="order_book_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Price USDT</th>
+                                                            <th>Quantity (BTC)</th>
+                                                            <th>Timestamp</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <br/>
+                                                    <tbody class="mt-4">
+                                                        <tr >
+                                                            <td class="text-green">94,555.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,555.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.07</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.08</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.03</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">94,555.01</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,777.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">92,999.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">92,888.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.01</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,777.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-green">94,555.01</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,777.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">92,999.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">92,888.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">94,555.01</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,777.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-green">94,555.01</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">93,777.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-red">92,999.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr class="mt-2">
+                                                            <td class="text-red">92,888.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr class="mt-2">
+                                                            <td class="text-red">94,555.01</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        <tr class="mt-2">
+                                                            <td class="text-red">93,777.00</td>
+                                                            <td>0.0005689</td>
+                                                            <td>14.10:00</td>
+                                                        </tr>
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+                <div class="col form_sidebar_col">
+                    <div class="trade_section">
+                        <h4 class="trade_heading">Trade</h4>
+                        <div class="trade_tabs_section">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item">
+                                    <a class="nav-link active btn-green" data-bs-toggle="pill" href="#buy_trade">
+                                        Buy
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#sell_trade">
+                                        Sell
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="buy_trade">
+                                    <form action="" method="post" class="trade_form_block">
+                                        <div class="trade_row">
+                                            <div class="trade_label">
+                                                <span>Available Balance</span>
+                                                <span>--USDT</span>
+                                            </div>
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_buy_balance" name="trade_buy_balance" value="94550.2" placeholder="Price" />
+                                                    <label for="trade_buy_balance">Price</label>
+                                                </div>
+                                                <select name="trade_select_currency" class="form-control form-right-select">
+                                                    <option value="USDT">USDT</option>
+                                                    <option value="BTC">BTC</option>
+                                                    <option value="BNB">BNB</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="trade_row">
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_buy_quantity" name="trade_buy_quantity" value="" placeholder="Quantity" />
+                                                    <label for="trade_buy_balance">Quantity</label>
+                                                </div>
+                                                <div class="trade-right-form">
+                                                    <p class="currency_form">
+                                                        <img src={redfullBitcoin} alt="Bitcoin" class="currency_icon" />
+                                                        <span>BTC</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="trade_row">
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_buy_order" name="trade_buy_order" value="" placeholder="Order Value" />
+                                                    <label for="trade_buy_order">Order Value</label>
+                                                </div>
+                                                <div class="trade-right-form">
+                                                    <p class="currency_form small-text">
+                                                        <span>USDT</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="trade_label text-right">
+                                                <span>--USD</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="trade_row">
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_buy_max_amount" name="trade_buy_max_amount" value="" placeholder="Max. Buying Amount" />
+                                                    <label for="trade_buy_max_amount">Max. Buying Amount</label>
+                                                </div>
+                                                <div class="trade-right-form">
+                                                    <p class="currency_form small-text">
+                                                        <span>--BTC</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <input type="submit" class="btn-submit-form btn-green" value="Buy" />
+
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="sell_trade">
+                                    <form action="" method="post" class="trade_form_block">
+                                        <div class="trade_row">
+                                            <div class="trade_label">
+                                                <span>Available Balance</span>
+                                                <span>--USDT</span>
+                                            </div>
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_sell_balance" name="trade_sell_balance" value="94550.2" placeholder="Price" />
+                                                    <label for="trade_sell_balance">Price</label>
+                                                </div>
+                                                <select name="trade_select_sell_currency" class="form-control form-right-select">
+                                                    <option value="USDT">USDT</option>
+                                                    <option value="BTC">BTC</option>
+                                                    <option value="BNB">BNB</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="trade_row">
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_sell_quantity" name="trade_sell_quantity" value="" placeholder="Quantity" />
+                                                    <label for="trade_sell_quantity">Quantity</label>
+                                                </div>
+                                                <div class="trade-right-form">
+                                                    <p class="currency_form">
+                                                        <img src={redfullBitcoin} alt="Bitcoin" class="currency_icon" />
+                                                        <span>BTC</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="trade_row">
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_sell_order" name="trade_sell_order" value="" placeholder="Order Value" />
+                                                    <label for="trade_sell_order">Order Value</label>
+                                                </div>
+                                                <div class="trade-right-form">
+                                                    <p class="currency_form small-text">
+                                                        <span>USDT</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="trade_label text-right">
+                                                <span>--USD</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="trade_row">
+                                            <div class="trade_input_rows">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control number_input" id="trade_sell_max_amount" name="trade_sell_max_amount" value="" placeholder="Max. Buying Amount" />
+                                                    <label for="trade_sell_max_amount">Max. Buying Amount</label>
+                                                </div>
+                                                <div class="trade-right-form">
+                                                    <p class="currency_form small-text">
+                                                        <span>--BTC</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <input type="submit" class="btn-submit-form btn-red" value="Sell" />
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="deposit_transfer">
+                                <button type="button" class="btn-primary-black">Deposit</button>
+                                <button type="button" class="btn-primary-black">Transfer</button>
+                            </div>
+                            <div class="deposit_transfer">
+                              
+                                <button type="button" class="btn-primary-black-btc">
+                                    <div class="content">
+                                    <div class="symbol">BTC3S</div>
+                                    <div class="change positive">+2.04%</div>
+                                    </div>
+                                    <div class="arrow">&#8250;</div>
+                                </button>
+                                <button
+  type="button"
+  className="btn-primary-black-btc"
+  style={{
+    background: 'linear-gradient(90deg,#ef454a47,#ef454a00),linear-gradient(270deg,#202124,#101014)',
+  }}
+>
+
+
+                                <div class="content">
+                                    <div class="symbol">BTC3L</div>
+                                    <div class="change negative">-1.25%</div>
+                                </div>
+                                <div class="arrow">&#8250;</div>
+                                </button>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="orders_section section-padding-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col p-0">
+                    <div class="orders_block_main">
+                        <div class="tabs_marks_block">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item hide_menu_trade">
+                                    <div class="trade_icon hide_login">
+                                      <div class="trade_img">
+                                        <img src={redfullBitcoingraph} alt="graph" class="graph_icon" />
+                                      </div>  
+                                      <p class="trade_text">Trade</p>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="pill" href="#open_order">Open Order (0)</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#positions">Positions (0)</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#order_history">Order History</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#trade_history">Trade History</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#assets_tab" >Assets</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#borrowing">Borrowing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#tool_tab">Tool</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#pandl_tab">P&L</a>
+                                </li>
+                            </ul>
+
+                            <div class="markets_block">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="markets_check" name="markets_check" value="markets" checked/>
+                                    <label class="form-check-label" for="markets_check">All Markets</label>
+                                </div>
+                                <select class="form-select" name="instruments" id="instruments">
+                                    <option value="All Instruments">All Instruments</option>
+                                    <option value="Perpetual Only">Perpetual Only</option>
+                                    <option Expiry Only>Expiry Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="tab-content">
+                            {/* <!-- Open Order Tab --> */}
+                            <div class="tab-pane active" id="open_order">
+                                <ul class="nav nav-pills sub_tab_links">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="pill" href="#limit_market_order">Limit & Market Order</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#conditional">Conditional</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#TPSL_tab">TP/SL</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#trailing_stop">Trailing Stop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#OCO_tab">OCO</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#MMR_close">MMR Close</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#spread_trading">Spread Trading</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    {/* <!-- Limit market Order tab --> */}
+                                    <div class="tab-pane sub_tab_content active" id="limit_market_order">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Order type</th>
+                                                        <th>Direction</th>
+                                                        <th>Order Price</th>
+                                                        <th>Filled / Order Quantity</th>
+                                                        <th>Order Value</th>
+                                                        <th>TP/SL</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Conditional tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="conditional">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Trigger Price</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Order Value</th>
+                                                        <th>TP/SL</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- TP/SL tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="TPSL_tab">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Trigger Price</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Order Value</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Trailing Stop tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="trailing_stop">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Trigger Price</th>
+                                                        <th>Retracement</th>
+                                                        <th>Activation Price</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Order Value</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- OCO Tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="OCO_tab">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Spot Pairs</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Type</th>
+                                                        <th>Direction</th>
+                                                        <th>Order Value</th>
+                                                        <th>Order Qty</th>
+                                                        <th>TP/SL Order Price</th>
+                                                        <th>TP/SL Trigger Price</th>
+                                                        <th>Order Status</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- MMR Close --> */}
+                                    <div class="tab-pane sub_tab_content" id="MMR_close">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Trigger MMR</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Spread Trading tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="spread_trading">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Symbol</th>
+                                                        <th>Underlying</th>
+                                                        <th>Strategy</th>
+                                                        <th>Order Price</th>
+                                                        <th>Filled/Order Quantity</th>
+                                                        <th>Order Type</th>
+                                                        <th>Order Status</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* <!-- Positions Tab --> */}
+                            <div class="tab-pane" id="positions">
+                                <div class="table_block_div">
+                                    <table class="order_table_tab">
+                                        <thead>
+                                            <tr>
+                                                <th>Contracts</th>
+                                                <th>Qty</th>
+                                                <th>Value</th>
+                                                <th>Entry Price</th>
+                                                <th>Mark Price</th>
+                                                <th>Liq. Price</th>
+                                                <th>IM</th>
+                                                <th>MM</th>
+                                                <th>Unrealized P&L(ROI)</th>
+                                                <th>Realized P&L</th>
+                                                <th>TP/SL</th>
+                                                <th>Trailing Stop</th>
+                                                <th>ADL</th>
+                                                <th>MMR Close</th>
+                                                <th>Reverse Position</th>
+                                                <th>Close By</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="no_data_found">
+                                        <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                        <p class="text-small">No Available Data</p>
+                                    </div>
+                                    <div class="hide_login login_first_block">
+                                        <p class="login_first">
+                                            Please
+                                            <a href="#" class="login_span">Log In</a>
+                                            or
+                                            <a href="#" class="login_span">Sign Up</a>
+                                            first.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <!-- Order History Tab --> */}
+                            <div class="tab-pane" id="order_history">
+                                <ul class="nav nav-pills sub_tab_links">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="pill" href="#limit_market_order_history">Limit & Market Order</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#conditional_history">Conditional</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#TPSL_tab_history">TP/SL</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#trailing_stop_history">Trailing Stop</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#OCO_tab_history">OCO</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#MMR_close_history">MMR Close</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#spread_trading_history">Spread Trading</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    {/* <!-- Limit market Order tab --> */}
+                                    <div class="tab-pane sub_tab_content active" id="limit_market_order_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Order type</th>
+                                                        <th>Direction</th>
+                                                        <th>Order Price</th>
+                                                        <th>Filled / Order Quantity</th>
+                                                        <th>Order Value</th>
+                                                        <th>TP/SL</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Conditional tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="conditional_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Trigger Price</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Order Value</th>
+                                                        <th>TP/SL</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- TP/SL tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="TPSL_tab_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Trigger Price</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Order Value</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Trailing Stop tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="trailing_stop_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Trigger Price</th>
+                                                        <th>Retracement</th>
+                                                        <th>Activation Price</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Order Value</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- OCO Tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="OCO_tab_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Spot Pairs</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Type</th>
+                                                        <th>Direction</th>
+                                                        <th>Order Value</th>
+                                                        <th>Order Qty</th>
+                                                        <th>TP/SL Order Price</th>
+                                                        <th>TP/SL Trigger Price</th>
+                                                        <th>Order Status</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- MMR Close --> */}
+                                    <div class="tab-pane sub_tab_content" id="MMR_close_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Trigger MMR</th>
+                                                        <th>Order Price</th>
+                                                        <th>Order Qty</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Order Time</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Spread Trading tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="spread_trading_history">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Symbol</th>
+                                                        <th>Underlying</th>
+                                                        <th>Strategy</th>
+                                                        <th>Order Price</th>
+                                                        <th>Filled/Order Quantity</th>
+                                                        <th>Order Type</th>
+                                                        <th>Order Status</th>
+                                                        <th>Order ID</th>
+                                                        <th>Order Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <!-- Trade History Tab --> */}
+                            <div class="tab-pane" id="trade_history">
+                                <div class="table_block_div">
+                                    <table class="order_table_tab">
+                                        <thead>
+                                            <tr>
+                                                <th>Market</th>
+                                                <th>Instrument</th>
+                                                <th>Order Type</th>
+                                                <th>Direction</th>
+                                                <th>Filled Value</th>
+                                                <th>Filled Price</th>
+                                                <th>Filled Qty</th>
+                                                <th>Filled Type</th>
+                                                <th>Trading Fees</th>
+                                                <th>Transaction Time</th>
+                                                <th>Transaction Id</th>
+                                                <th>Impiled Volatility</th>
+                                                <th>Index Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="no_data_found">
+                                        <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                        <p class="text-small">No Available Data</p>
+                                    </div>
+                                    <div class="hide_login login_first_block">
+                                        <p class="login_first">
+                                            Please
+                                            <a href="#" class="login_span">Log In</a>
+                                            or
+                                            <a href="#" class="login_span">Sign Up</a>
+                                            first.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <!-- Assets Tab --> */}
+                            <div class="tab-pane" id="assets_tab">
+                                <div class="table_block_div">
+                                    <table class="order_table_tab">
+                                        <thead>
+                                            <tr>
+                                                <th>Coins</th>
+                                                <th>Net Asset Value</th>
+                                                <th>Balance</th>
+                                                <th>Spot Cost</th>
+                                                <th>Last Price</th>
+                                                <th>PnL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="table_coins">
+                                                        <img src={redfullBitcoin} alt="Bitcoin" class="table_coin_img" />
+                                                        <span>BTC</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">0.00000000</p>
+                                                    <p class="text-small text-gray">≈0.00 USD</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">0.00000000</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">--</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">98836.40 USD</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">--</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="table_coins">
+                                                        <img src="assests/images/usdt.svg" alt="USDt" class="table_coin_img" />
+                                                        <span>BTC</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">0.0000</p>
+                                                    <p class="text-small text-gray">≈0.00 USD</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">0.0000</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">--</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">--</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-small text-bold">--</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {/* <!-- Borrowing Tab --> */}
+                            <div class="tab-pane" id="borrowing">
+                                <div class="table_block_div">
+                                    <table class="order_table_tab">
+                                        <thead>
+                                            <tr>
+                                                <th>Coins</th>
+                                                <th>Borrowed Amount</th>
+                                                <th>Hourly Borrow Rate</th>
+                                                <th>Max. Borrowing Amount</th>
+                                                <th>Free Borrowing Amount</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                    <div class="no_data_found">
+                                        <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                        <p class="text-small">No Available Data</p>
+                                    </div>
+                                    <div class="hide_login login_first_block">
+                                        <p class="login_first">
+                                            Please
+                                            <a href="#" class="login_span">Log In</a>
+                                            or
+                                            <a href="#" class="login_span">Sign Up</a>
+                                            first.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <!-- Tools Tab --> */}
+                            <div class="tab-pane" id="tool_tab">
+                                <ul class="nav nav-pills sub_tab_links">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="pill" href="#chase_tab">Chase</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#twap_tab">TWAP</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#iceberg_tab">Iceberg</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#webhook_tab">Webhook</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    {/* <!-- Chase tab --> */}
+                                    <div class="tab-pane sub_tab_content active" id="chase_tab">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Filled/Total</th>
+                                                        <th>Avg. Filled Price</th>
+                                                        <th>Max. Chasing Price</th>
+                                                        <th>Chase Price</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Creation Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- TWAP tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="twap_tab">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Avg. Filled Price</th>
+                                                        <th>Price Limit</th>
+                                                        <th>Filled/Total</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Status</th>
+                                                        <th>Frequency</th>
+                                                        <th>Running Time/Total</th>
+                                                        <th>Creation Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Iceberg tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="iceberg_tab">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Avg. Filled Price/Order Price</th>
+                                                        <th>Price Limit</th>
+                                                        <th>Filled/Order Quantity</th>
+                                                        <th>Reduce Only</th>
+                                                        <th>Order Preferences</th>
+                                                        <th>Creation Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Webhook tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="webhook_tab">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Signal Name</th>
+                                                        <th>Trigger(s)/Trade(s)</th>
+                                                        <th>Status</th>
+                                                        <th>Realized P/L</th>
+                                                        <th>Creation Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            {/* <!-- P&L Tab --> */}
+                            <div class="tab-pane" id="pandl_tab">
+                                <ul class="nav nav-pills sub_tab_links">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-bs-toggle="pill" href="#closed_orders">Closed orders</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="pill" href="#closed_positions">Closed Positions</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    {/* <!-- Closed orders tab --> */}
+                                    <div class="tab-pane sub_tab_content active" id="closed_orders">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Entry Price</th>
+                                                        <th>Traded Price</th>
+                                                        <th>Order Quantity</th>
+                                                        <th>Trade Type</th>
+                                                        <th>Realized P/L</th>
+                                                        <th>Opening Fee</th>
+                                                        <th>Closing Fee</th>
+                                                        <th>Funding Fee</th>
+                                                        <th>Trade Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* <!-- Closed Positions tab --> */}
+                                    <div class="tab-pane sub_tab_content" id="closed_positions">
+                                        <div class="table_block_div">
+                                            <table class="order_table_tab">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Market</th>
+                                                        <th>Instrument</th>
+                                                        <th>Direction</th>
+                                                        <th>Avg. Entry Price</th>
+                                                        <th>Avg. Exit Price</th>
+                                                        <th>Qty</th>
+                                                        <th>P&L</th>
+                                                        <th>Opening Fee</th>
+                                                        <th>Closing Fee</th>
+                                                        <th>Funding Fee</th>
+                                                        <th>Open Time</th>
+                                                        <th>Open Duration</th>
+                                                        <th>Close Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                            <div class="no_data_found">
+                                                <img src="assests/images/no-data.png" alt="No data" class="no_data_icon" />
+                                                <p class="text-small">No Available Data</p>
+                                            </div>
+                                            <div class="hide_login login_first_block">
+                                                <p class="login_first">
+                                                    Please
+                                                    <a href="#" class="login_span">Log In</a>
+                                                    or
+                                                    <a href="#" class="login_span">Sign Up</a>
+                                                    first.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        </>
+    )
+}
+export default Trade;

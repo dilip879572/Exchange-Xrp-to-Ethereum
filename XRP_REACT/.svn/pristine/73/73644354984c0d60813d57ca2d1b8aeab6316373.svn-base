@@ -1,0 +1,19 @@
+import { BrowserRouter, Route, Routes } from 'react-router';
+import './App.css';
+import Layout from './Layouts/Layout';
+import MarketPage from './Pages/Market/Market';
+
+function App() {
+  return (
+    <BrowserRouter basename='markets'>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<MarketPage />} />
+          <Route path='*' element={<MarketPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
