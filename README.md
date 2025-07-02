@@ -1,6 +1,6 @@
-![image](https://github.com/user-attachments/assets/cd435865-fd16-4011-a120-52f5ebb554e6)# Exchange-Xrp-to-Ethereum
+ Exchange-Xrp-to-Ethereum
 
-<img width="151" alt="image" src="https://github.com/user-attachments/assets/a681d018-523d-4a3d-b6b0-e2ecbb083b23" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/a681d018-523d-4a3d-b6b0-e2ecbb083b23" />
 
 [ User Initiates Swap ]
           |
